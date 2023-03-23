@@ -8,6 +8,7 @@
 #include <QFileInfo>
 #include <QFileDialog>
 #include <QDebug>
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class ServerWidget; }
@@ -20,6 +21,8 @@ class ServerWidget : public QWidget
 public:
     ServerWidget(QWidget *parent = nullptr);
     ~ServerWidget();
+
+    void sendData(); // 发送文件数据
 
 private slots:
     void on_pushButtonFile_clicked();
@@ -36,5 +39,6 @@ private:
     QString fileName; // 文件名字
     qint64 fileSize; // 文件大小
     qint64 sendSize; // 已经发送文件大小
+    QTimer timer;
 };
 #endif // SERVERWIDGET_H

@@ -101,7 +101,7 @@ void MainWindow::on_pushButton_clicked()
             m = new char[FileSize];
             stream.readRawData(m, FileSize);   // readRawData  读取原始的二进制格式
             short* res = new short[FileSize / sizeof(short)];
-           // memset(res, 0, FileSize / sizeof(short));
+            memset(res, 0, FileSize / sizeof(short));
             memcpy(res, m, FileSize);
             short * quint16Data = res;
             int quint16DataLen = FileSize / sizeof(short);

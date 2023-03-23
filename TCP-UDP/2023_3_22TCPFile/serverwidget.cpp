@@ -27,13 +27,19 @@ ServerWidget::ServerWidget(QWidget *parent)
                 ui->pushButtonFile->setEnabled(true);
                 ui->pushButtonSend->setEnabled(true);
             });
+    connect(&timer,&QTimer::timeout,
+            [=]()
+            {
+                // 关闭定时器
+                timer.stop();
+                sendData();
+            });
 }
 
 ServerWidget::~ServerWidget()
 {
     delete ui;
 }
-
 
 void ServerWidget::on_pushButtonFile_clicked()
 {
@@ -68,5 +74,44 @@ void ServerWidget::on_pushButtonFile_clicked()
 
 void ServerWidget::on_pushButtonSend_clicked()
 {
+    // 头部信息
+    QString head = QString("%1##%2").arg(fileName).arg(fileSize);
+    // 发送头部信息
+    qint64 len = tcpsocket->write(head.toUtf8());
+    if(len > 0)
+    {
+        // 发送文件信息
+        // 防止TCP粘包问题
+        // 添加定时器
+        timer.start(20);
+    }
+    else
+    {
+        qDebug() << "head send error";
+        file.close();
+        ui->pushButtonFile->setEnabled(true);
+        ui->pushButtonSend->setEnabled(false);
+    }
+}
 
+void ServerWidget::sendData()
+{
+    qint64 len = 0;
+    do
+    {
+        char buf[4*1024] = {0}; // 每次发送的大小
+        len = 0;
+        len = file.read(buf,sizeof(buf)); // 文件中读数据
+        len = tcpsocket->write(buf,len);
+        sendSize += len;
+    }while(len > 0);
+
+    if(sendSize == fileSize)
+    {
+        ui->textEdit->append("file send finish");
+        file.close();
+
+        tcpsocket->disconnectFromHost();
+        tcpsocket->close();
+    }
 }

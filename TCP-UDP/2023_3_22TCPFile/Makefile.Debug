@@ -574,7 +574,6 @@ debug\clientwidget.obj: clientwidget.cpp clientwidget.h \
 		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtWidgets\qpushbutton.h \
 		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtWidgets\qabstractbutton.h \
 		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtGui\qicon.h \
-		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtWidgets\QSpacerItem \
 		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtWidgets\QTextEdit \
 		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtWidgets\qtextedit.h \
 		..\..\..\..\QT\5.12.10\msvc2015_64\include\QtWidgets\qabstractscrollarea.h \

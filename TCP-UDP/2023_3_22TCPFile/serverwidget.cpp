@@ -53,9 +53,8 @@ void ServerWidget::on_pushButtonFile_clicked()
         fileName = info.fileName();
         fileSize = info.size();
         sendSize = 0;
-        // 只读方式打开
         file.setFileName(filepath);
-        // 打开文件
+        // 打开文件 只读方式打开
         bool isOk = file.open(QIODevice::ReadOnly);
         if(false == isOk)
         {

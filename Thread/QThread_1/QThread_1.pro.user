@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.1, 2023-03-07T18:57:43. -->
+<!-- Written by QtCreator 4.13.1, 2023-04-11T16:01:49. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -325,9 +325,8 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">QThread_12</value>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/Zstu320/QT Code/Thread/QThread_1/QThread_1.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/Zstu320/QT Code/Thread/QThread_1/QThread_1.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/Zstu320/Qt_Code/Thread/QThread_1/QThread_1.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/Zstu320/Qt_Code/Thread/QThread_1/QThread_1.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 4.13.1, 2023-03-22T15:23:52. -->
+<!-- Written by QtCreator 4.13.1, 2023-05-03T19:47:02. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -325,8 +325,9 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
-    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/Zstu320/QT Code/TCP-UDP/9_29Tcp/9_29Tcp.pro</value>
-    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/Zstu320/QT Code/TCP-UDP/9_29Tcp/9_29Tcp.pro</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">9_29Tcp2</value>
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:E:/Zstu320/Qt_Code/TCP-UDP/9_29Tcp/9_29Tcp.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">E:/Zstu320/Qt_Code/TCP-UDP/9_29Tcp/9_29Tcp.pro</value>
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

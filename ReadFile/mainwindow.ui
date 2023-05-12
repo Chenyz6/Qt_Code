@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>648</width>
-    <height>579</height>
+    <width>957</width>
+    <height>580</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -15,8 +15,15 @@
   </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QGridLayout" name="gridLayout">
-    <item row="0" column="0" colspan="3">
-     <widget class="QListWidget" name="listWidget"/>
+    <item row="0" column="0" colspan="5">
+     <layout class="QHBoxLayout" name="horizontalLayout" stretch="3,8">
+      <item>
+       <widget class="QListWidget" name="listWidget"/>
+      </item>
+      <item>
+       <widget class="QCustomPlot" name="Waterfall" native="true"/>
+      </item>
+     </layout>
     </item>
     <item row="1" column="0">
      <widget class="QPushButton" name="pushButton">
@@ -32,13 +39,33 @@
       </property>
       <property name="sizeHint" stdset="0">
        <size>
-        <width>465</width>
+        <width>342</width>
         <height>20</height>
        </size>
       </property>
      </spacer>
     </item>
     <item row="1" column="2">
+     <widget class="QPushButton" name="pushButton_3">
+      <property name="text">
+       <string>Paint</string>
+      </property>
+     </widget>
+    </item>
+    <item row="1" column="3">
+     <spacer name="horizontalSpacer_2">
+      <property name="orientation">
+       <enum>Qt::Horizontal</enum>
+      </property>
+      <property name="sizeHint" stdset="0">
+       <size>
+        <width>342</width>
+        <height>20</height>
+       </size>
+      </property>
+     </spacer>
+    </item>
+    <item row="1" column="4">
      <widget class="QPushButton" name="pushButton_2">
       <property name="text">
        <string>Read</string>
@@ -52,13 +79,21 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>648</width>
+     <width>957</width>
      <height>23</height>
     </rect>
    </property>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>QCustomPlot</class>
+   <extends>QWidget</extends>
+   <header>qcustomplot.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

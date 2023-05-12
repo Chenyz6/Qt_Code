@@ -1,8 +1,9 @@
 ﻿#ifndef MAINWINDOW_H
 #define MAINWINDOW_H
-
-#include <QMainWindow>
 #include "qcustomplot.h"
+#include <QMainWindow>
+#include <QTimer>
+#pragma execution_character_set("utf-8")
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -14,13 +15,10 @@ class MainWindow : public QMainWindow
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
-
-private slots:
-    void on_pushButton_clicked();
-
-    void on_pushButton_2_clicked();
-
-    void on_pushButton_3_clicked();
+    void init_Constellation();   // 初始化星座图
+    void init_Waterfall();       // 初始化瀑布图
+    void init_DirectionFind();	 //初始化测向图
+    bool eventFilter(QObject *watched, QEvent *event);			//事件过滤器
 
 private:
     Ui::MainWindow *ui;
@@ -28,5 +26,9 @@ private:
     QCPColorMap* m_pColorMap;					//绘制色谱图指针变量
     QCPColorScale* m_pColorScale;				//瀑布图色条
     QTimer *time = new QTimer;
+    QTimer *time1 = new QTimer;
+    QTimer *time2 = new QTimer;
+
+    double nAzimuth = 0;		//方位角
 };
 #endif // MAINWINDOW_H

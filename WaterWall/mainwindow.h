@@ -19,6 +19,7 @@ public:
     void init_Waterfall();       // 初始化瀑布图
     void init_DirectionFind();	 //初始化测向图
     bool eventFilter(QObject *watched, QEvent *event);			//事件过滤器
+    void updata();
 
 private:
     Ui::MainWindow *ui;
@@ -30,5 +31,6 @@ private:
     QTimer *time2 = new QTimer;
 
     double nAzimuth = 0;		//方位角
+    int q = 1;
 };
 #endif // MAINWINDOW_H

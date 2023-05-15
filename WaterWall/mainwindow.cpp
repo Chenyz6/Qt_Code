@@ -13,14 +13,26 @@ MainWindow::MainWindow(QWidget *parent)
     resize(1300,800);
     init_Waterfall();       // 初始化瀑布图
     init_Constellation();   // 初始化星座图
+    init_DirectionFind();	//初始化测向图
     ui->DirFind->installEventFilter(this);		//注册事件过滤器
-    connect(time2,&QTimer::timeout,this,
-            [=]()
-            {
-//                nAzimuth = qrand() % 360;
-                ui->DirFind->update();
-            });
+    connect(time2,&QTimer::timeout,this,&MainWindow::updata);
     time2->start(500);
+}
+
+void MainWindow::updata()
+{
+    nAzimuth = qrand() % 360;
+    ui->DirFind->update();
+//    if(q == 1)
+//    {
+//        resize(1300 + q,800);
+//        q--;
+//    }
+//    else if(q == 0)
+//    {
+//        resize(1300 + q,800);
+//        q++;
+//    }
 }
 
 MainWindow::~MainWindow()
@@ -105,6 +117,7 @@ void MainWindow::init_Waterfall()
     ui->Waterfall->setBackground(QColor(37, 37, 38));	    //设置背景颜色(黑)
     ui->Waterfall->xAxis->setVisible(false);				//使x轴网格线不可见
     ui->Waterfall->yAxis->setVisible(false);				//使y轴网格线不可见
+    ui->Waterfall->xAxis->setRange(0,100);
 
 
     m_pColorMap = new QCPColorMap(ui->Waterfall->xAxis, ui->Waterfall->yAxis);
@@ -179,7 +192,9 @@ bool MainWindow::eventFilter(QObject *watched, QEvent *event)
         return true;	//手动处理
     }
     else
+    {
         return false;	//继续执行
+    }
 }
 
 void MainWindow::init_DirectionFind()

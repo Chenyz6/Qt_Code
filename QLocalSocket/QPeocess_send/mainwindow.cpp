@@ -1,8 +1,6 @@
 ﻿#include "mainwindow.h"
 #include "ui_mainwindow.h"
 
-short*  quint16Data;
-int quint16DataLen;
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
@@ -13,6 +11,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     m_server = new QLocalServer(this);
     //myserver为服务端名称,类似于IP+PORT,客户端连接需要与其保持一致
+    ui->listWidget->addItem("简称名称:local_server");
     if( m_server->listen("local_server") ) //监听
     {
        connect(m_server,&QLocalServer::newConnection,this,&MainWindow::new_connection);
@@ -33,7 +32,7 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
     QProcess * process = new QProcess;
-    process->start("E:/Zstu320/QT_Content/Qt_CodeDebug/QProcess/QProcess_receive/release/QProcess_receive.exe"); // Replace "receiver_app" with the name of the receiving application or its path
+    process->start("E:/Zstu320/QT_Content/Qt_CodeDebug/QLocalSocket/QProcess_receive/release/QProcess_receive.exe"); // Replace "receiver_app" with the name of the receiving application or its path
 //    process->waitForStarted();
 //    process.closeWriteChannel();
 //    process.waitForFinished();
@@ -41,30 +40,30 @@ void MainWindow::on_pushButton_clicked()
 
 void MainWindow::new_connection()
 {
-    qDebug()<<"发现新连接!!";
-    ui->listWidget->addItem("发现新连接!!");
+    ui->listWidget->addItem("已有另一个exe连接此进程！");
     QLocalSocket *newsocket = m_server->nextPendingConnection();  //获取连接上的客户端句柄
     connect(newsocket, &QLocalSocket::readyRead, this, &MainWindow::recv_data); //关联数据接收槽函数
 
-    //newsocket->write(QString("欢迎连接myserver!!").toUtf8());
-    // 要发送的QVector数据
-    QVector<double> dataToSend = {1.2, 2.56, 35.45, 1.5555, 4.899635,5,8.54545,6,3,2,4,9,8,7};
-//    // 创建一个QByteArray来存储序列化后的数据
-//    QByteArray byteArray;
-//    QDataStream dataStream(&byteArray, QIODevice::WriteOnly);
-//    dataStream << dataToSend;
-//    for(int i = 0; i< dataToSend.size(); i++)
+#define my_size 8
+
+    short * sh = new short[my_size];
+    memset(sh, 0, my_size * 2);
+    for(int i = 0; i< my_size; i++)
+    {
+        sh[i] = qrand() % 100;
+        ui->listWidget_2->addItem(QString::number(sh[i]));
+    }
+
+    char * c = new char[my_size * 2];
+    memset(c, 0, my_size * 2);
+//    for(int i = 0; i< 100; i++)
 //    {
-//         byteArray.append(dataToSend[i]);
+//        c[i] = qrand() % 100;
 //    }
 
-//    char buf[sizeof(quint16Data)];
-//    short * s = new short[1024];
+    memcpy(c, sh, my_size * 2);
 
-//    memcpy(buf, quint16Data, sizeof(quint16Data));
-    char * buf = new char(sizeof(quint16Data));
-    buf = (char *)quint16Data;
-    newsocket->write(buf,100);
+    newsocket->write(c,my_size * 2);
 }
 
 void MainWindow::recv_data()
@@ -88,7 +87,6 @@ void MainWindow::recv_data()
         ui->listWidget->addItem(QString("发送数据:%1").arg(QString(rcv_data)));
     }
 }
-
 
 
 bool MainWindow::is_first_connect(QLocalSocket *newsocket)  //是否为首次连接

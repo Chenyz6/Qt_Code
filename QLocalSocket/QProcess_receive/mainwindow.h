@@ -31,7 +31,7 @@ public:
 private:
     Ui::MainWindow *ui;
 
-    QLocalSocket * m_socket = new QLocalSocket;
-    QTimer * reconnect_timer = new QTimer;
+    QLocalSocket * m_socket;
+    QTimer * reconnect_timer;
 };
 #endif // MAINWINDOW_H

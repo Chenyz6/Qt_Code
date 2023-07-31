@@ -20,19 +20,25 @@ MainWindow::MainWindow(QWidget *parent)
     connect(m_socket,&QLocalSocket::connected,this,&MainWindow::connect_success);  //数据接收
     connect(m_socket,&QLocalSocket::disconnected,this,&MainWindow::disconnect_from_server);  //连接断开
     connect(m_socket,&QLocalSocket::readyRead,this,&MainWindow::rcv_data);  //数据接收
+
     m_socket->connectToServer("local_server");  //连接到服务器
 }
 
 void MainWindow::rcv_data() //收到数据
 {
     QByteArray data = m_socket->readAll();
-    ui->textBrowser->insertPlainText(QString(data));
-    ui->listWidget->addItem("--------------------------");
+    ui->listWidget->addItem("-----------------------------");
+    ui->listWidget->addItem(QString::number(data.size() / 2));
+    ui->listWidget->addItem("-----------------------------");
+
+    short *sh = new short[data.size() / 2];
+    memcpy(sh, data, data.size());
+
     QVector<double> temp;
-    for(int i = 0; i< data.size(); i++)
+    for(int i = 0; i< data.size() / 2; i++)
     {
-        temp << data[i];
-        ui->listWidget->addItem(QString::number(temp[i]));
+        temp << sh[i];
+        ui->listWidget->addItem(QString::number(sh[i]));
     }
 }
 
@@ -51,7 +57,7 @@ void MainWindow::reconect_to_server()
     reconnect_timer->stop();
     ui->textBrowser->insertPlainText("连接重试中...");
     if(m_socket)
-        m_socket->connectToServer("myserver");
+        m_socket->connectToServer("local_server");
 }
 
 void MainWindow::error_proc(QLocalSocket::LocalSocketError state)

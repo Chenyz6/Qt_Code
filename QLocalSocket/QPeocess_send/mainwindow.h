@@ -34,6 +34,11 @@ private:
     Ui::MainWindow *ui;
 
     QLocalServer *m_server;
+
     QList<QLocalSocket *> local_sockets;  //利用Qlist来存储新连接
+
+
+    short*  quint16Data;
+    int quint16DataLen;
 };
 #endif // MAINWINDOW_H

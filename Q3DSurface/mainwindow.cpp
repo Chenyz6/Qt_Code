@@ -144,7 +144,7 @@ void MainWindow::on_pushButton_2_clicked()  // 显示3d柱状图
     gradient.setColorAt(0.7, QColor(0xff, 0xff, 0, 150));			// 黄
     gradient.setColorAt(0.9, QColor(0, 0xff, 0, 150));				// 绿
     gradient.setColorAt(1.0, QColor(255, 255, 255, 150));			// 设置色条结束时的颜色(白
-    seriesBar->setBaseGradient(gradient);
+//    seriesBar->setBaseGradient(gradient);
 
 
     bars.rowAxis()->setRange(0, 30);  //Z轴(行)的范围，最多可包含n行，也就是在Z轴方向上最多有n个数据点

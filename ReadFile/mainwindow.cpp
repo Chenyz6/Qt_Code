@@ -35,11 +35,11 @@ void MainWindow::on_pushButton_clicked()
     quint16Data = NULL;
     quint16DataLen = 0;
     char* m;        //文件数据源数据
-    QString filename = QFileDialog::getOpenFileName(this,"打开一个数据文件",path,"DAT(*.dat);;TXT(*.txt)");
-    setWindowTitle(filename);
-    if(filename.isEmpty() == false)
+    QString path = QFileDialog::getOpenFileName(this,"打开一个数据文件",path,"DAT(*.dat);;TXT(*.txt)");
+    setWindowTitle(path);
+    if(path.isEmpty() == false)
     {
-        QFile file(filename);
+        QFile file(path);
         bool isok = file.open(QIODevice::ReadOnly);
         if(isok == true)
         {

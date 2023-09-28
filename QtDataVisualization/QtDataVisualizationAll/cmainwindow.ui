@@ -1,0 +1,595 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>CMainWindow</class>
+ <widget class="QMainWindow" name="CMainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>720</width>
+    <height>466</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>CMainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralWidget">
+   <layout class="QHBoxLayout" name="horizontalLayout_3" stretch="0,1">
+    <property name="spacing">
+     <number>0</number>
+    </property>
+    <property name="leftMargin">
+     <number>0</number>
+    </property>
+    <property name="topMargin">
+     <number>0</number>
+    </property>
+    <property name="rightMargin">
+     <number>0</number>
+    </property>
+    <property name="bottomMargin">
+     <number>0</number>
+    </property>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_2" stretch="0,1,1,1">
+      <property name="spacing">
+       <number>10</number>
+      </property>
+      <property name="leftMargin">
+       <number>7</number>
+      </property>
+      <property name="topMargin">
+       <number>5</number>
+      </property>
+      <property name="rightMargin">
+       <number>10</number>
+      </property>
+      <property name="bottomMargin">
+       <number>5</number>
+      </property>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_2">
+        <property name="leftMargin">
+         <number>5</number>
+        </property>
+        <property name="topMargin">
+         <number>5</number>
+        </property>
+        <property name="rightMargin">
+         <number>5</number>
+        </property>
+        <property name="bottomMargin">
+         <number>5</number>
+        </property>
+        <item>
+         <widget class="QLabel" name="label">
+          <property name="text">
+           <string>三维（图）类型：</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="typeComboBox">
+          <item>
+           <property name="text">
+            <string>三维柱状图</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>三维散点图</string>
+           </property>
+          </item>
+          <item>
+           <property name="text">
+            <string>三维曲面图</string>
+           </property>
+          </item>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox">
+        <property name="title">
+         <string>视角选项</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>5</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="text">
+            <string>自动切换视角：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QPushButton" name="autoSwitchAngleBtn">
+           <property name="maximumSize">
+            <size>
+             <width>100</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>开始</string>
+           </property>
+           <property name="checkable">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0" colspan="2">
+          <layout class="QHBoxLayout" name="horizontalLayout">
+           <property name="spacing">
+            <number>0</number>
+           </property>
+           <item>
+            <widget class="QLabel" name="label_3">
+             <property name="text">
+              <string>水平视角：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="horAngleSpinBox">
+             <property name="suffix">
+              <string>°</string>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="minimum">
+              <number>-180</number>
+             </property>
+             <property name="maximum">
+              <number>180</number>
+             </property>
+             <property name="singleStep">
+              <number>5</number>
+             </property>
+             <property name="DirectionType" stdset="0">
+              <number>0</number>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <spacer name="horizontalSpacer">
+             <property name="orientation">
+              <enum>Qt::Horizontal</enum>
+             </property>
+             <property name="sizeHint" stdset="0">
+              <size>
+               <width>40</width>
+               <height>20</height>
+              </size>
+             </property>
+            </spacer>
+           </item>
+           <item>
+            <widget class="QLabel" name="label_4">
+             <property name="text">
+              <string>垂直视角：</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QSpinBox" name="verAngleSpinBox">
+             <property name="suffix">
+              <string>°</string>
+             </property>
+             <property name="prefix">
+              <string/>
+             </property>
+             <property name="maximum">
+              <number>90</number>
+             </property>
+             <property name="singleStep">
+              <number>5</number>
+             </property>
+             <property name="DirectionType" stdset="0">
+              <number>1</number>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_5">
+           <property name="text">
+            <string>缩放：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QSlider" name="scaleSlider">
+           <property name="minimum">
+            <number>10</number>
+           </property>
+           <property name="maximum">
+            <number>500</number>
+           </property>
+           <property name="value">
+            <number>100</number>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_2">
+        <property name="title">
+         <string>样式选项</string>
+        </property>
+        <layout class="QFormLayout" name="formLayout">
+         <property name="horizontalSpacing">
+          <number>0</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>10</number>
+         </property>
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="text">
+            <string>主题：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QComboBox" name="themeComboBox">
+           <item>
+            <property name="text">
+             <string>ThemeQt</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemePrimaryColors</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeDigia</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeStoneMoss</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeArmyBlue</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeRetro</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeEbony</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeIsabelle</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>ThemeUserDefined</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_7">
+           <property name="text">
+            <string>系列样式：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QComboBox" name="seriesStyleComboBox">
+           <item>
+            <property name="text">
+             <string>MeshBar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshCube</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshPyramid</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshCone</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshCylinder</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshBevelBar</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshBevelCube</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshSphere</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshMinimal</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshArrow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>MeshPoint</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_8">
+           <property name="text">
+            <string>选择模式：</string>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QComboBox" name="selectModeComboBox">
+           <item>
+            <property name="text">
+             <string>SelectionNone</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionItem</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionRow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionItemAndRow</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionColumn</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionItemAndColumn</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionRowAndColumn</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionItemRowAndColumn</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionSlice</string>
+            </property>
+           </item>
+           <item>
+            <property name="text">
+             <string>SelectionMultiSeries</string>
+            </property>
+           </item>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QGroupBox" name="groupBox_3">
+        <property name="title">
+         <string>其他选项</string>
+        </property>
+        <layout class="QGridLayout" name="gridLayout_3">
+         <property name="leftMargin">
+          <number>5</number>
+         </property>
+         <property name="topMargin">
+          <number>5</number>
+         </property>
+         <property name="rightMargin">
+          <number>5</number>
+         </property>
+         <property name="bottomMargin">
+          <number>5</number>
+         </property>
+         <property name="spacing">
+          <number>0</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QCheckBox" name="showBgCheckBox">
+           <property name="text">
+            <string>显示背景</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="OptionType" stdset="0">
+            <number>0</number>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">otherOptionGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QCheckBox" name="showGridCheckBox">
+           <property name="text">
+            <string>显示网格</string>
+           </property>
+           <property name="checked">
+            <bool>true</bool>
+           </property>
+           <property name="OptionType" stdset="0">
+            <number>1</number>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">otherOptionGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QCheckBox" name="showReflectionCheckBox">
+           <property name="text">
+            <string>显示倒影</string>
+           </property>
+           <property name="OptionType" stdset="0">
+            <number>2</number>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">otherOptionGroup</string>
+           </attribute>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QCheckBox" name="twoDimenCheckBox">
+           <property name="text">
+            <string>二维显示</string>
+           </property>
+           <property name="OptionType" stdset="0">
+            <number>3</number>
+           </property>
+           <attribute name="buttonGroup">
+            <string notr="true">otherOptionGroup</string>
+           </attribute>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <widget class="QStackedWidget" name="stackedWidget"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>720</width>
+     <height>23</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QStatusBar" name="statusBar"/>
+ </widget>
+ <layoutdefault spacing="6" margin="11"/>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>horAngleSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>CMainWindow</receiver>
+   <slot>on_angleValueChange(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>110</x>
+     <y>130</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-83</x>
+     <y>239</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>verAngleSpinBox</sender>
+   <signal>valueChanged(int)</signal>
+   <receiver>CMainWindow</receiver>
+   <slot>on_angleValueChange(int)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>273</x>
+     <y>131</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>-157</x>
+     <y>269</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+ <slots>
+  <slot>on_angleValueChange(int)</slot>
+ </slots>
+ <buttongroups>
+  <buttongroup name="otherOptionGroup">
+   <property name="exclusive">
+    <bool>false</bool>
+   </property>
+  </buttongroup>
+ </buttongroups>
+</ui>
+

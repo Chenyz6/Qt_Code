@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icon/add.ico</file>
+        <file>icon/bold.ico</file>
+        <file>icon/clear.ico</file>
+        <file>icon/copy.ico</file>
+        <file>icon/cut.ico</file>
+        <file>icon/exit.ico</file>
+        <file>icon/eye.ico</file>
+        <file>icon/flush.ico</file>
+        <file>icon/haarcascade_fullbody.xml</file>
+        <file>icon/insert.ico</file>
+        <file>icon/Italic.ico</file>
+        <file>icon/item.ico</file>
+        <file>icon/left.ico</file>
+        <file>icon/new.ico</file>
+        <file>icon/oo.ico</file>
+        <file>icon/open.ico</file>
+        <file>icon/paste.ico</file>
+        <file>icon/pause.ico</file>
+        <file>icon/play.ico</file>
+        <file>icon/print.ico</file>
+        <file>icon/right.ico</file>
+        <file>icon/save.ico</file>
+        <file>icon/stop.ico</file>
+        <file>icon/title.ico</file>
+        <file>icon/txt.ico</file>
+        <file>icon/underline.ico</file>
+        <file>icon/uo.ico</file>
+    </qresource>
+</RCC>

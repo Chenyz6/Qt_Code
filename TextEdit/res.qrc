@@ -1,0 +1,30 @@
+<RCC>
+    <qresource prefix="/new/prefix1">
+        <file>res/设置字体.png</file>
+        <file>res/字体斜体.png</file>
+        <file>res/字体加粗.png</file>
+        <file>res/字体下划线.png</file>
+        <file>res/粘贴.png</file>
+        <file>res/查询.png</file>
+        <file>res/新建 .png</file>
+        <file>res/打开.png</file>
+        <file>res/复制.png</file>
+        <file>res/另存为.png</file>
+        <file>res/剪切板,剪切.png</file>
+        <file>res/保存.png</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>res/设置字体.png</file>
+        <file>res/粘贴.png</file>
+        <file>res/查询.png</file>
+        <file>res/新建 .png</file>
+        <file>res/打开.png</file>
+        <file>res/字体斜体.png</file>
+        <file>res/字体加粗.png</file>
+        <file>res/字体下划线.png</file>
+        <file>res/复制.png</file>
+        <file>res/另存为.png</file>
+        <file>res/剪切板,剪切.png</file>
+        <file>res/保存.png</file>
+    </qresource>
+</RCC>

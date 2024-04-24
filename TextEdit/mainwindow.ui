@@ -1,0 +1,819 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1029</width>
+    <height>782</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Ignored" vsizetype="Ignored">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <layout class="QGridLayout" name="gridLayout_3" columnstretch="1,9">
+    <item row="0" column="0">
+     <widget class="QStackedWidget" name="stackedWidget">
+      <property name="minimumSize">
+       <size>
+        <width>260</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <widget class="QWidget" name="page">
+       <layout class="QGridLayout" name="gridLayout">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox_5">
+          <property name="title">
+           <string>信道编码参数</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_24" rowstretch="1,2,2,5,5,1">
+           <item row="0" column="0">
+            <widget class="QLabel" name="label_45">
+             <property name="text">
+              <string>01码文件路径</string>
+             </property>
+            </widget>
+           </item>
+           <item row="0" column="1">
+            <widget class="QLineEdit" name="lineEdit_bitfilename_coding">
+             <property name="text">
+              <string/>
+             </property>
+            </widget>
+           </item>
+           <item row="1" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_10">
+             <property name="title">
+              <string>帧结构检测</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_15">
+              <property name="leftMargin">
+               <number>9</number>
+              </property>
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_46">
+                <property name="text">
+                 <string>帧长检测范围</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_range">
+                <property name="text">
+                 <string>100-200</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_framestructuredetection">
+                <property name="text">
+                 <string>启动帧结构检测</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_15">
+             <property name="title">
+              <string>编码识别</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_16">
+              <item row="0" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_opencodingidentify">
+                <property name="text">
+                 <string>启动编码识别</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_60">
+                <property name="text">
+                 <string>识别结果</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QComboBox" name="comboBox_identifyresult">
+                <item>
+                 <property name="text">
+                  <string>BCH</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>RS</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>系统卷积码</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>非系统卷积码</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>LDPC</string>
+                 </property>
+                </item>
+                <item>
+                 <property name="text">
+                  <string>扰码</string>
+                 </property>
+                </item>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_7">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>RS编码</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_11">
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item row="4" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_RS">
+                <property name="text">
+                 <string>启动RS解码</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_36">
+                <property name="text">
+                 <string>2的幂次方</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_rs_n">
+                <property name="text">
+                 <string>255</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_39">
+                <property name="text">
+                 <string>生成多项式</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_rs_g">
+                <property name="text">
+                 <string>1 0 0 0 1 1 1 0 1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_rs_m">
+                <property name="text">
+                 <string>8</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_rs_k">
+                <property name="text">
+                 <string>233</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_37">
+                <property name="text">
+                 <string>码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_38">
+                <property name="text">
+                 <string>信息码长</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="0" colspan="2">
+            <widget class="QGroupBox" name="groupBox_8">
+             <property name="minimumSize">
+              <size>
+               <width>0</width>
+               <height>0</height>
+              </size>
+             </property>
+             <property name="title">
+              <string>CONV卷积码</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_12" rowstretch="1,1,1,1,1">
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_40">
+                <property name="text">
+                 <string>约束长度</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0">
+               <widget class="QLabel" name="label_43">
+                <property name="text">
+                 <string>生成多项式</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_41">
+                <property name="text">
+                 <string>码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="1">
+               <widget class="QLineEdit" name="lineEdit_conv_pins">
+                <property name="text">
+                 <string>133 171</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_conv_k">
+                <property name="text">
+                 <string>1</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_conv_n">
+                <property name="text">
+                 <string>2</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_42">
+                <property name="text">
+                 <string>信息码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_conv_m">
+                <property name="text">
+                 <string>6</string>
+                </property>
+               </widget>
+              </item>
+              <item row="4" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_CONV">
+                <property name="text">
+                 <string>启动CONV解码</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="5" column="0" colspan="2">
+            <widget class="QPushButton" name="pushButton_codingnextpage">
+             <property name="text">
+              <string>下一页</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="page_2">
+       <layout class="QGridLayout" name="gridLayout_2">
+        <property name="leftMargin">
+         <number>0</number>
+        </property>
+        <property name="topMargin">
+         <number>0</number>
+        </property>
+        <property name="rightMargin">
+         <number>0</number>
+        </property>
+        <property name="bottomMargin">
+         <number>0</number>
+        </property>
+        <property name="spacing">
+         <number>0</number>
+        </property>
+        <item row="0" column="0">
+         <widget class="QGroupBox" name="groupBox_11">
+          <property name="title">
+           <string>信道编码参数</string>
+          </property>
+          <layout class="QGridLayout" name="gridLayout_22" rowstretch="2,4,4,3,3,1">
+           <item row="0" column="0">
+            <widget class="QGroupBox" name="groupBox_9">
+             <property name="title">
+              <string>DESSR扰码</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_13">
+              <property name="topMargin">
+               <number>9</number>
+              </property>
+              <property name="bottomMargin">
+               <number>9</number>
+              </property>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_44">
+                <property name="text">
+                 <string>生成多项式</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_dessr_g">
+                <property name="text">
+                 <string>5 3 0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_DESSR">
+                <property name="text">
+                 <string>启动DESSR解码</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="1" column="0">
+            <widget class="QGroupBox" name="groupBox_6">
+             <property name="title">
+              <string>BCH编码</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_10">
+              <property name="topMargin">
+               <number>3</number>
+              </property>
+              <property name="bottomMargin">
+               <number>3</number>
+              </property>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_bch_n">
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_bch_pins">
+                <property name="text">
+                 <string>8 7 6 4 0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_bch_k">
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_35">
+                <property name="text">
+                 <string>生成多项式</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_BCH">
+                <property name="text">
+                 <string>启动BCH解码</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_34">
+                <property name="text">
+                 <string>信息码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_33">
+                <property name="text">
+                 <string>码长</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="2" column="0">
+            <widget class="QGroupBox" name="groupBox_12">
+             <property name="title">
+              <string>TPC</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_19">
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_tpc_k">
+                <property name="text">
+                 <string>7</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_54">
+                <property name="text">
+                 <string>信息码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_55">
+                <property name="text">
+                 <string>码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="1">
+               <widget class="QLineEdit" name="lineEdit_tpc_pins">
+                <property name="text">
+                 <string>8 7 6 4 0</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0">
+               <widget class="QLabel" name="label_52">
+                <property name="text">
+                 <string>生成多项式</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_tpc_n">
+                <property name="text">
+                 <string>15</string>
+                </property>
+               </widget>
+              </item>
+              <item row="3" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_TPC">
+                <property name="text">
+                 <string>启动TPC</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="3" column="0">
+            <widget class="QGroupBox" name="groupBox_13">
+             <property name="title">
+              <string>LDPC</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_20">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_56">
+                <property name="text">
+                 <string>码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="2">
+               <widget class="QLineEdit" name="lineEdit_ldpc_n">
+                <property name="text">
+                 <string>1024</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="0" colspan="2">
+               <widget class="QLabel" name="label_57">
+                <property name="text">
+                 <string>信息码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="2">
+               <widget class="QLineEdit" name="lineEdit_ldpc_k">
+                <property name="text">
+                 <string>512</string>
+                </property>
+               </widget>
+              </item>
+              <item row="2" column="0" colspan="3">
+               <widget class="QPushButton" name="pushButton_ldpc">
+                <property name="text">
+                 <string>启动LDPC</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="4" column="0">
+            <widget class="QGroupBox" name="groupBox_14">
+             <property name="title">
+              <string>TCC</string>
+             </property>
+             <layout class="QGridLayout" name="gridLayout_21">
+              <item row="0" column="0">
+               <widget class="QLabel" name="label_58">
+                <property name="text">
+                 <string>码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="0" column="1">
+               <widget class="QLineEdit" name="lineEdit_tcc_n"/>
+              </item>
+              <item row="1" column="0">
+               <widget class="QLabel" name="label_59">
+                <property name="text">
+                 <string>信息码长</string>
+                </property>
+               </widget>
+              </item>
+              <item row="1" column="1">
+               <widget class="QLineEdit" name="lineEdit_tcc_k"/>
+              </item>
+              <item row="2" column="0" colspan="2">
+               <widget class="QPushButton" name="pushButton_TCC">
+                <property name="text">
+                 <string>启动TCC</string>
+                </property>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+           </item>
+           <item row="5" column="0">
+            <widget class="QPushButton" name="pushButton_codinglastpage">
+             <property name="text">
+              <string>上一页</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </widget>
+    </item>
+    <item row="0" column="1">
+     <widget class="QMdiArea" name="mdiArea"/>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QMenuBar" name="menubar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1029</width>
+     <height>28</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menu">
+    <property name="title">
+     <string>文件</string>
+    </property>
+    <addaction name="action"/>
+    <addaction name="separator"/>
+    <addaction name="action_S"/>
+   </widget>
+   <widget class="QMenu" name="menu_2">
+    <property name="title">
+     <string>编辑</string>
+    </property>
+   </widget>
+   <widget class="QMenu" name="menu_3">
+    <property name="title">
+     <string>格式</string>
+    </property>
+   </widget>
+   <addaction name="menu"/>
+   <addaction name="menu_2"/>
+   <addaction name="menu_3"/>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+   <addaction name="action_Open"/>
+   <addaction name="action_New"/>
+   <addaction name="action_Save"/>
+   <addaction name="action_SavaAs"/>
+   <addaction name="separator"/>
+   <addaction name="previousFrame"/>
+   <addaction name="nextFrame"/>
+   <addaction name="separator"/>
+   <addaction name="action_Copy"/>
+   <addaction name="action_Cut"/>
+   <addaction name="action_Paste"/>
+   <addaction name="action_Find"/>
+   <addaction name="separator"/>
+   <addaction name="action_Bold"/>
+   <addaction name="action_Underline"/>
+   <addaction name="action_Italic"/>
+   <addaction name="action_Font"/>
+  </widget>
+  <action name="action">
+   <property name="text">
+    <string>打开文件</string>
+   </property>
+  </action>
+  <action name="action_S">
+   <property name="text">
+    <string>保存文件</string>
+   </property>
+  </action>
+  <action name="action_Open">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/打开.png</normaloff>:/new/prefix1/res/打开.png</iconset>
+   </property>
+   <property name="text">
+    <string>打开</string>
+   </property>
+  </action>
+  <action name="action_New">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/新建 .png</normaloff>:/new/prefix1/res/新建 .png</iconset>
+   </property>
+   <property name="text">
+    <string>新建</string>
+   </property>
+  </action>
+  <action name="action_Save">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/保存.png</normaloff>:/new/prefix1/res/保存.png</iconset>
+   </property>
+   <property name="text">
+    <string>保存</string>
+   </property>
+  </action>
+  <action name="action_SavaAs">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/另存为.png</normaloff>:/new/prefix1/res/另存为.png</iconset>
+   </property>
+   <property name="text">
+    <string>另存为</string>
+   </property>
+  </action>
+  <action name="action_Copy">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/复制.png</normaloff>:/new/prefix1/res/复制.png</iconset>
+   </property>
+   <property name="text">
+    <string>复制</string>
+   </property>
+  </action>
+  <action name="action_Cut">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/剪切板,剪切.png</normaloff>:/new/prefix1/res/剪切板,剪切.png</iconset>
+   </property>
+   <property name="text">
+    <string>剪切</string>
+   </property>
+  </action>
+  <action name="action_Paste">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/res/粘贴.png</normaloff>:/res/粘贴.png</iconset>
+   </property>
+   <property name="text">
+    <string>粘贴</string>
+   </property>
+  </action>
+  <action name="action_Find">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/查询.png</normaloff>:/new/prefix1/res/查询.png</iconset>
+   </property>
+   <property name="text">
+    <string>查找</string>
+   </property>
+  </action>
+  <action name="action_Underline">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/字体下划线.png</normaloff>:/new/prefix1/res/字体下划线.png</iconset>
+   </property>
+   <property name="text">
+    <string>下划线</string>
+   </property>
+  </action>
+  <action name="action_Bold">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/字体加粗.png</normaloff>:/new/prefix1/res/字体加粗.png</iconset>
+   </property>
+   <property name="text">
+    <string>加粗</string>
+   </property>
+  </action>
+  <action name="action_Italic">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/字体斜体.png</normaloff>:/new/prefix1/res/字体斜体.png</iconset>
+   </property>
+   <property name="text">
+    <string>倾斜</string>
+   </property>
+  </action>
+  <action name="action_Font">
+   <property name="icon">
+    <iconset>
+     <normaloff>:/new/prefix1/res/设置字体.png</normaloff>:/new/prefix1/res/设置字体.png</iconset>
+   </property>
+   <property name="text">
+    <string>设置字体</string>
+   </property>
+  </action>
+  <action name="previousFrame">
+   <property name="text">
+    <string>上一帧</string>
+   </property>
+  </action>
+  <action name="nextFrame">
+   <property name="text">
+    <string>下一帧</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

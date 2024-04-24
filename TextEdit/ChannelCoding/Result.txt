@@ -1,0 +1,1 @@
+snr=0   success=1   wrong=0   wer=0   ber=0   aver_iter=50   

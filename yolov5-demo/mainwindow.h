@@ -63,38 +63,39 @@ QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
 
+// 主窗口类的定义
 class MainWindow : public QMainWindow
 {
-    Q_OBJECT
+    Q_OBJECT  // 使用Qt的信号和槽机制必须的宏
 
 public:
+    // 构造函数和析构函数
     MainWindow(QWidget *parent = nullptr);
-    void Init();
     ~MainWindow();
 
+    // 初始化函数，通常用于初始化数据和配置
+    void Init();
+
 private slots:
-    void readFrame(); //自定义信号处理函数
-
-
-    void on_openfile_clicked();
-
-    void on_loadfile_clicked();
-
-    void on_startdetect_clicked();
-
-    void on_stopdetect_clicked();
-
-    void on_comboBox_activated(const QString &arg1);
+    // 定义槽函数，这些函数是响应信号（如按钮点击、时间到达等）的函数
+    void readFrame(); // 读取视频帧并处理
+    void on_openfile_clicked(); // 处理“打开文件”按钮点击事件
+    void on_loadfile_clicked(); // 处理“加载文件”按钮点击事件
+    void on_startdetect_clicked(); // 处理“开始检测”按钮点击事件
+    void on_stopdetect_clicked(); // 处理“停止检测”按钮点击事件
+    void on_comboBox_activated(const QString &arg1); // 处理下拉列表选择改变事件
 
 private:
-    Ui::MainWindow *ui;
-    QTimer *timer;
-    cv::VideoCapture *capture;
+    // 成员变量
+    Ui::MainWindow *ui; // UI界面指针
+    QTimer *timer; // 定时器指针，用于定期触发读取视频帧
+    cv::VideoCapture *capture; // OpenCV视频捕获对象
 
-    YOLOV5 *yolov5;
-    NetConfig conf;
-    NetConfig *yolo_nets;
-    std::vector<cv::Rect> bboxes;
-    int IsDetect_ok = 0;
+    YOLOV5 *yolov5; // YOLOv5对象指针，用于执行目标检测
+    NetConfig conf; // 网络配置结构，用于存储网络配置参数
+    NetConfig *yolo_nets; // 网络配置数组，用于存储多个网络配置
+    std::vector<cv::Rect> bboxes; // 存储检测到的边界框
+    int IsDetect_ok = 0; // 检测状态标志，0表示未检测，1表示检测完成
 };
+
 #endif // MAINWINDOW_H

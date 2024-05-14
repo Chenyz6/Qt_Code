@@ -14,155 +14,155 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QGridLayout" name="gridLayout">
+   <layout class="QGridLayout" name="gridLayout_2" columnstretch="9,1">
     <item row="0" column="0">
-     <widget class="QSplitter" name="splitter_2">
-      <property name="orientation">
-       <enum>Qt::Horizontal</enum>
-      </property>
-      <widget class="QSplitter" name="splitter">
-       <property name="orientation">
-        <enum>Qt::Vertical</enum>
-       </property>
-       <widget class="QWidget" name="">
-        <layout class="QHBoxLayout" name="horizontalLayout">
-         <item>
-          <widget class="QPushButton" name="openfile">
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>40</height>
-            </size>
-           </property>
+     <layout class="QGridLayout" name="gridLayout" rowstretch="1,9" rowminimumheight="0,0">
+      <item row="0" column="0">
+       <layout class="QHBoxLayout" name="horizontalLayout">
+        <item>
+         <widget class="QPushButton" name="openfile">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>打开文件</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icon/open.ico</normaloff>:/icon/open.ico</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="loadfile">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>加载模型</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icon/flush.ico</normaloff>:/icon/flush.ico</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QComboBox" name="comboBox">
+          <property name="minimumSize">
+           <size>
+            <width>60</width>
+            <height>38</height>
+           </size>
+          </property>
+          <item>
            <property name="text">
-            <string>打开文件</string>
+            <string>yolov5s</string>
            </property>
-           <property name="icon">
-            <iconset resource="res.qrc">
-             <normaloff>:/icon/open.ico</normaloff>:/icon/open.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="loadfile">
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>40</height>
-            </size>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>加载模型</string>
+            <string>yolov5m</string>
            </property>
-           <property name="icon">
-            <iconset resource="res.qrc">
-             <normaloff>:/icon/flush.ico</normaloff>:/icon/flush.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="comboBox">
-           <property name="minimumSize">
-            <size>
-             <width>60</width>
-             <height>38</height>
-            </size>
-           </property>
-           <item>
-            <property name="text">
-             <string>yolov5s</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>yolov5m</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>yolov5l</string>
-            </property>
-           </item>
-           <item>
-            <property name="text">
-             <string>yolov5x</string>
-            </property>
-           </item>
-          </widget>
-         </item>
-         <item>
-          <spacer name="horizontalSpacer">
-           <property name="orientation">
-            <enum>Qt::Horizontal</enum>
-           </property>
-           <property name="sizeHint" stdset="0">
-            <size>
-             <width>38</width>
-             <height>40</height>
-            </size>
-           </property>
-          </spacer>
-         </item>
-         <item>
-          <widget class="QPushButton" name="startdetect">
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>40</height>
-            </size>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>开始检测</string>
+            <string>yolov5l</string>
            </property>
-           <property name="icon">
-            <iconset resource="res.qrc">
-             <normaloff>:/icon/play.ico</normaloff>:/icon/play.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="stopdetect">
-           <property name="minimumSize">
-            <size>
-             <width>120</width>
-             <height>40</height>
-            </size>
-           </property>
+          </item>
+          <item>
            <property name="text">
-            <string>停止检测</string>
+            <string>yolov5x</string>
            </property>
-           <property name="icon">
-            <iconset resource="res.qrc">
-             <normaloff>:/icon/stop.ico</normaloff>:/icon/stop.ico</iconset>
-           </property>
-           <property name="iconSize">
-            <size>
-             <width>32</width>
-             <height>32</height>
-            </size>
-           </property>
-          </widget>
-         </item>
-        </layout>
-       </widget>
+          </item>
+         </widget>
+        </item>
+        <item>
+         <spacer name="horizontalSpacer">
+          <property name="orientation">
+           <enum>Qt::Horizontal</enum>
+          </property>
+          <property name="sizeHint" stdset="0">
+           <size>
+            <width>38</width>
+            <height>40</height>
+           </size>
+          </property>
+         </spacer>
+        </item>
+        <item>
+         <widget class="QPushButton" name="startdetect">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="maximumSize">
+           <size>
+            <width>16777215</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>开始检测</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icon/play.ico</normaloff>:/icon/play.ico</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="stopdetect">
+          <property name="minimumSize">
+           <size>
+            <width>120</width>
+            <height>40</height>
+           </size>
+          </property>
+          <property name="text">
+           <string>停止检测</string>
+          </property>
+          <property name="icon">
+           <iconset resource="res.qrc">
+            <normaloff>:/icon/stop.ico</normaloff>:/icon/stop.ico</iconset>
+          </property>
+          <property name="iconSize">
+           <size>
+            <width>32</width>
+            <height>32</height>
+           </size>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item row="1" column="0">
        <widget class="QLabel" name="label">
         <property name="minimumSize">
          <size>
@@ -174,15 +174,23 @@
          <string/>
         </property>
        </widget>
-      </widget>
-      <widget class="QTextEdit" name="textEditlog">
-       <property name="minimumSize">
-        <size>
-         <width>30</width>
-         <height>350</height>
-        </size>
-       </property>
-      </widget>
+      </item>
+     </layout>
+    </item>
+    <item row="0" column="1">
+     <widget class="QTextEdit" name="textEditlog">
+      <property name="minimumSize">
+       <size>
+        <width>200</width>
+        <height>350</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>200</width>
+        <height>16777215</height>
+       </size>
+      </property>
      </widget>
     </item>
    </layout>
@@ -193,7 +201,7 @@
      <x>0</x>
      <y>0</y>
      <width>951</width>
-     <height>26</height>
+     <height>22</height>
     </rect>
    </property>
   </widget>

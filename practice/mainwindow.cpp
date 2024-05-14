@@ -77,13 +77,62 @@ MainWindow::MainWindow(QWidget *parent)
 class MainWindow1 {
 public:
     bool canPartition(vector<int>& nums) {
+        vector<int> dp(10001, 0);
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum += nums[i];
+        }
+        if (sum % 2 == 1) return false;
+        int target = sum / 2;
+        for(int i = 0; i < nums.size(); i++){  // 物品
+            for(int j = target; j >= nums[i]; j--){ // 背包
+                dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+            for(int i = 0; i < nums.size(); i++){
+                cout << dp[i] << " ";
+            }cout << endl;
+        }
+        if (dp[target] == target) return true;
+        return false;
+    }
+};
 
+class MainWindow2 {
+public:
+    int lastStoneWeightII(vector<int>& stones) {
+        vector<int> dp(15001, 0);
+        int sum = 0;
+        for(int i = 0; i < stones.size(); i++){
+            sum += stones[i];
+        }
+        int target = sum / 2;
+        for(int i = 0; i < stones.size(); i++){
+            for(int j = target; j >= stones[i]; j--){
+                dp[j] = max(dp[j], dp[j - stones[i]] + stones[i]);
+            }
+        }
+        return sum - dp[target] - dp[target];
     }
 };
 
 
-
-
+class MainWindow3 {
+public:
+    int lastStoneWeightII(vector<int>& stones) {
+        vector<vector<int>> dp(stones.size(), vector<int>(15001, 0));
+        int sum = 0;
+        for(int i = 0; i < stones.size(); i++){
+            sum += stones[i];
+        }
+        int target = sum / 2;
+        for(int i = 0; i < stones.size(); i++){
+            for(int j = 0; j <= 15001; j++){
+                dp[i][j] = max(dp[i - 1][j], dp[i - 1][j - stones[i]] + stones[i]);
+            }
+        }
+        return sum - dp[stones.size()][target] - dp[stones.size()][target];
+    }
+};
 
 
 

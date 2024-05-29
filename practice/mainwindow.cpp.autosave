@@ -1,0 +1,145 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <iostream>
+#include <vector>
+#include <string>
+#include <stack>
+#include <queue>
+#include <deque>
+#include <unordered_set>
+#include <map>
+#include <algorithm>
+#include <memory>
+using namespace std;
+
+struct TreeNode {
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode() : val(0), left(nullptr), right(nullptr) {}
+    TreeNode(int x) : val(x), left(nullptr), right(nullptr) {}
+    TreeNode(int x, TreeNode *left, TreeNode *right) : val(x), left(left), right(right) {}
+};
+
+
+class Solution {
+public:
+    int integerBreak(int n) {
+        vector<int> dp(n + 1, 0);
+        dp[2] = 1;
+        for(int i = 3; i <= n; i++){
+            for(int j = 1; j < i; j++){
+                dp[i] = max(dp[i], max((i - j) * j, dp[i - j] * j));
+            }
+        }
+        return dp[n];
+    }
+};
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+
+void MainWindow::pushButton_clicked()
+{
+
+}
+
+MainWindow::MainWindow(QWidget *parent)
+    : QMainWindow(parent)
+    , ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    chart = new QChart();
+    chartView = new QChartView(chart);
+//    layout = new QVBoxLayout(ui->widget);
+    chartView->setRenderHint(QPainter::Antialiasing);
+    // 设置 chartView 为正方形
+    int sideLength = 300; // 设置正方形的边长
+    chartView->setFixedSize(sideLength, sideLength);
+//    ui->widget->setStyleSheet("background-color:rgb(37,37,38)");  // 设置控件背景颜色
+
+    connect(&timer, &QTimer::timeout,this,[=](){
+        series = new QLineSeries;
+        for(int temp = 0; temp < 2048; temp++)
+        {
+            series->append(qrand() % 100, qrand() % 200);
+        }
+
+        pushButton_clicked();
+    });
+    timer.start(500);
+
+}
+
+class MainWindow1 {
+public:
+    bool canPartition(vector<int>& nums) {
+        vector<int> dp(10001, 0);
+        int sum = 0;
+        for(int i = 0; i < nums.size(); i++){
+            sum += nums[i];
+        }
+        if (sum % 2 == 1) return false;
+        int target = sum / 2;
+        for(int i = 0; i < nums.size(); i++){  // 物品
+            for(int j = target; j >= nums[i]; j--){ // 背包
+                dp[j] = max(dp[j], dp[j - nums[i]] + nums[i]);
+            }
+            for(int i = 0; i < nums.size(); i++){
+                cout << dp[i] << " ";
+            }cout << endl;
+        }
+        if (dp[target] == target) return true;
+        return false;
+    }
+};
+
+class MainWindow2 {
+public:
+    int lastStoneWeightII(vector<int>& stones) {
+        vector<int> dp(15001, 0);
+        int sum = 0;
+        for(int i = 0; i < stones.size(); i++){
+            sum += stones[i];
+        }
+        int target = sum / 2;
+        for(int i = 0; i < stones.size(); i++){
+            for(int j = target; j >= stones[i]; j--){
+                dp[j] = max(dp[j], dp[j - stones[i]] + stones[i]);
+            }
+        }
+        return sum - dp[target] - dp[target];
+    }
+};
+
+
+class MainWindow3 {
+public:
+    string replaceSpace(string s) {
+        string result = "";
+        int num = 0; int size = s.size();
+        if(size == 0) return result;
+        for(int i = 0; i < size; i++){
+            if(s[i] = ' ') num++;
+        }
+        s.resize(size + num);
+        int begin = size - 1;
+        int end = size + num - 1;
+        while(begin >= 0){
+            if(s[begin] != ' '){
+                s[end--] = s[begin--];
+            }else{
+                s[end--] = 0; s[end--] = 2; s[end--] = 
+            }
+        }
+    }
+};
+
+
+
+
+
+

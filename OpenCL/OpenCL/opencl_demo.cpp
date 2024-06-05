@@ -116,7 +116,7 @@ void opencl_demo::InitPlatForms()
     */
 
     // 平台信息
-    printf("平台信息:\n");
+    printf("\n平台信息:\n");
 
     // 第一遍查询平台的数量
     err = clGetPlatformIDs(5, NULL, &num_platforms);
@@ -159,8 +159,34 @@ void opencl_demo::InitPlatForms()
 // 初始化设备
 void opencl_demo::InitDevices()
 {
-    /* Access a device, preferably a GPU */
-    /* Changed on 2/12 to fix the CL_INVALID_VALUE error */
+    /*
+    cl_int clGetDeviceIDs(cl_platform_id platform, cl_device_type device_type,
+                            cl_uint num_entries, cl_device_id* devices,
+                            cl_uint* num_devices)
+    参数1：平台id
+    参数2：设备类型 枚举类型
+    eg: CL_DEVICE_TYPE_ALL--表示和平台相关的所有设备 CL_DEVICE_TYPE_CPU CL_DEVICE_TYPE_GPU
+    参数3：限定设备数量
+    参数4：设备id
+    参数5：设备数量
+    注：最后两个参数设定为NULL，可以确定所连的设备数量
+
+    cl_int clGetDeviceIndo(cl_device_id device, cl_device_info param_name,
+                            size_t param_value_size, void* param_value,
+                            size_t* param_value_size_ret)
+    同 clGetPlatformInfo()
+    参数1：设备id
+    参数2：所需信息类型  枚举类型
+    eg:CL_DEVICE_NAME--返回设备的名字 CL_DEVICE_ADDRESS_BITS--返回设备地址空间大小 CL_DEVICE_EXTENSIONS--返回设备支持OpenCL扩展
+    参数3：告诉函数所要保存的字节数
+    参数4：char* 数组形式返回所要的数据  数组长度由最后一个参数决定
+    参数5：数组长度
+    */
+
+    // 设备信息
+    printf("\n设备信息:\n");
+
+    // 如果有GPU设备则接受GPU设备 没有则寻找CPU设备
     err = clGetDeviceIDs(platforms[0], CL_DEVICE_TYPE_GPU, 1, &device, NULL);
     if(err == CL_DEVICE_NOT_FOUND) {
         err = clGetDeviceIDs(platforms[0], CL_DEVICE_TYPE_CPU, 1, &device, NULL);
@@ -170,24 +196,20 @@ void opencl_demo::InitDevices()
         exit(1);
     }
 
-    /* Access device name */
-    err = clGetDeviceInfo(device, CL_DEVICE_NAME,
-                          48 * sizeof(char), device_name_data, NULL);
+    // 接收设备名字
+    err = clGetDeviceInfo(device, CL_DEVICE_NAME, 48 * sizeof(char), device_name_data, NULL);
     if(err < 0) {
         perror("Couldn't read extension data");
         exit(1);
     }
 
-    /* Access device address size */
-    clGetDeviceInfo(device, CL_DEVICE_ADDRESS_BITS,
-                    sizeof(device_addr_data), &device_addr_data, NULL);
+    // 接收设备地址空间大小
+    clGetDeviceInfo(device, CL_DEVICE_ADDRESS_BITS, sizeof(device_addr_data), &device_addr_data, NULL);
 
-    /* Access device extensions */
-    clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS,
-                    4096 * sizeof(char), device_ext_data, NULL);
+    // 接收设备扩展
+    clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, 4096 * sizeof(char), device_ext_data, NULL);
 
-    printf("NAME: %s\nADDRESS_WIDTH: %u\nEXTENSIONS: %s\n",
-           device_name_data, device_addr_data, device_ext_data);
+    printf("NAME: %s\nADDRESS_WIDTH: %u\nEXTENSIONS: %s\n", device_name_data, device_addr_data, device_ext_data);
 }
 
 

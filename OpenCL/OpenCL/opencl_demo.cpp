@@ -4,95 +4,12 @@ opencl_demo::opencl_demo() {
 
     InitPlatForms();    // 初始化平台
     InitDevices();      // 初始化设备
+    InitContext();      // 初始化上下文
+    InitProgram();      // 初始化程序
+
 
     free(platforms);    // 释放平台
-
-
-
-    // /* Access the first GPU/CPU */
-    // err = clGetDeviceIDs(platforms, CL_DEVICE_TYPE_GPU, 1, &device, NULL);
-    // if(err == CL_DEVICE_NOT_FOUND) {
-    //     err = clGetDeviceIDs(platforms, CL_DEVICE_TYPE_CPU, 1, &device, NULL);
-    // }
-    // if(err < 0) {
-    //     perror("Couldn't find any devices");
-    //     exit(1);
-    // }
-
-    // /* Create a context */
-    // context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
-    // if(err < 0) {
-    //     perror("Couldn't create a context");
-    //     exit(1);
-    // }
-
-    // /* Read program file and place content into buffer */
-    // program_handle = fopen(PROGRAM_FILE, "r");
-    // if(program_handle == NULL) {
-    //     perror("Couldn't find the program file");
-    //     exit(1);
-    // }
-    // fseek(program_handle, 0, SEEK_END);
-    // program_size = ftell(program_handle);
-    // rewind(program_handle);
-    // program_buffer = (char*)malloc(program_size+1);
-    // program_buffer[program_size] = '\0';
-    // fread(program_buffer, sizeof(char), program_size, program_handle);
-    // fclose(program_handle);
-
-    // /* Create program from file */
-    // program = clCreateProgramWithSource(context, 1,
-    //                                     (const char**)&program_buffer, &program_size, &err);
-    // if(err < 0) {
-    //     perror("Couldn't create the program");
-    //     exit(1);
-    // }
-    // free(program_buffer);
-
-    // /* Build program */
-    // err = clBuildProgram(program, 1, &device, NULL, NULL, NULL);
-    // if(err < 0) {
-
-    //     /* Find size of log and print to std output */
-    //     clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
-    //                           0, NULL, &log_size);
-    //     program_log = (char*) malloc(log_size+1);
-    //     program_log[log_size] = '\0';
-    //     clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
-    //                           log_size+1, program_log, NULL);
-    //     printf("%s\n", program_log);
-    //     free(program_log);
-    //     exit(1);
-    // }
-
-    // /* Create the kernel */
-    // kernel = clCreateKernel(program, KERNEL_NAME, &err);
-    // if(err < 0) {
-    //     perror("Couldn't create the kernel");
-    //     exit(1);
-    // }
-
-    // /* Create the command queue */
-    // queue = clCreateCommandQueue(context, device, 0, &err);
-    // if(err < 0) {
-    //     perror("Couldn't create the command queue");
-    //     exit(1);
-    // }
-
-    // /* Enqueue the kernel execution command */
-    // err = clEnqueueTask(queue, kernel, 0, NULL, NULL);
-    // if(err < 0) {
-    //     perror("Couldn't enqueue the kernel execution command");
-    //     exit(1);
-    // }
-    // else
-    //     printf("Successfully queued kernel.\n");
-
-    // /* Deallocate resources */
-    // clReleaseCommandQueue(queue);
-    // clReleaseKernel(kernel);
-    // clReleaseProgram(program);
-    // clReleaseContext(context);
+    clReleaseContext(context);	// 使用完之后释放上下文
 }
 
 // 初始化平台
@@ -210,6 +127,132 @@ void opencl_demo::InitDevices()
     clGetDeviceInfo(device, CL_DEVICE_EXTENSIONS, 4096 * sizeof(char), device_ext_data, NULL);
 
     printf("NAME: %s\nADDRESS_WIDTH: %u\nEXTENSIONS: %s\n", device_name_data, device_addr_data, device_ext_data);
+}
+
+// 初始化上下文
+void opencl_demo::InitContext()
+{
+    /*
+    cl_context clCreateContext(const cl_context_properties* properties, cl_uint num_devices,
+                                const cl_device_id* devices, (void CL_CALLBACK* notify_func)(...),
+                                void* user_data, cl_int* error)
+    clCreateContext()  直接通过确定设备的方式
+    参数1：指向由一个属性名和属性值所组成的数组，并且数组以0元素结尾 -- 可以为NULL
+    参数2：设备数量
+    参数3：设备id
+    参数4：回调函数  上下文发生运行错误时 被调用
+    参数5：可以指向任何类型的数据，提供报错信息 -- 可以为NULL
+    参数6：错误值
+
+    clgetContextInfo(cl_context context, cl_context_info param_name,
+                        size_t param_value_size, void* param_value,
+                        size_t* param_value_size_ret)
+    与clGetPlatformInfo()  clGetDeviceInfo() 相似
+    参数2：枚举类型
+    eg: CL_CONTEXT_REFERENCE_COUNT -- 返回上下文设备数  CL_CONTEXT_REFERENCE_COUNT -- 返回上下文的引用计数
+
+    上下文引用次数：返回的是cl_context OpenCL需要对cl_context的访问次数进行管理，也称为保留计数/引用计数，
+                  在创建的时候初始化为1,当计数为0的时候程序会释放相应的内存空间。
+    clRetainContext() 增加计数
+    clReleaseContext() 减少计数
+    */
+
+    // 上下文信息
+    printf("\n上下文信息:\n");
+
+    // 创建一个上下文
+    context = clCreateContext(NULL, 1, &device, NULL, NULL, &err);
+    if(err < 0) {
+        perror("Couldn't create a context");
+        exit(1);
+    }
+
+    // 上下文引用计数
+    err = clGetContextInfo(context, CL_CONTEXT_REFERENCE_COUNT, sizeof(ref_count), &ref_count, NULL);
+    if(err < 0) {
+        perror("Couldn't read the reference count.");
+        exit(1);
+    }
+    printf("Initial reference count: %u\n", ref_count);
+
+    // 增加一次计数
+    clRetainContext(context);
+    clGetContextInfo(context, CL_CONTEXT_REFERENCE_COUNT,
+                     sizeof(ref_count), &ref_count, NULL);
+    printf("Reference count: %u\n", ref_count);
+
+    // 减少一次计数
+    clReleaseContext(context);
+    clGetContextInfo(context, CL_CONTEXT_REFERENCE_COUNT,
+                     sizeof(ref_count), &ref_count, NULL);
+    printf("Reference count: %u\n", ref_count);
+}
+
+// 初始化程序
+void opencl_demo::InitProgram()
+{
+    /*
+    clCreateProgramWithSource(cl_context context, cl_uint src_num,
+                                const char** src_strings, const size_t* src_sizes,
+                                cl_int* err_code)
+    参数1：上下文对象
+    参数2：函数的文件数量 与参数3对应
+    参数3：每个文件的内容都需要保存到一个由3字符串组成的指针数组(char**)中
+    参数4：表示每个文本字符串的大小
+    参数5：错误值
+    */
+
+    // 程序信息
+    printf("\n程序信息:\n");
+
+    // for每次读取一个文本到char*中
+    for(cl_int i = 0; i < NUM_FILES; i++) {
+        program_handle = fopen(program_file_name[i], "r");
+        if(program_handle == NULL) {
+            perror("Couldn't find the program file");
+            exit(1);
+        }
+        fseek(program_handle, 0, SEEK_END); // 文件指针移到文件末尾
+        program_size[i] = ftell(program_handle);    // 查询文件指针指向当前的位置
+        rewind(program_handle);
+        program_buffer[i] = (char*)malloc(program_size[i]+1);
+        program_buffer[i][program_size[i]] = '\0';
+        fread(program_buffer[i], sizeof(char), program_size[i],
+              program_handle);
+        fclose(program_handle);
+    }
+
+    /* Create a program containing all program content */
+    program = clCreateProgramWithSource(context, NUM_FILES,
+                                        (const char**)program_buffer, program_size, &err);
+    if(err < 0) {
+        perror("Couldn't create the program");
+        exit(1);
+    }
+
+    /* Build program */
+    err = clBuildProgram(program, 1, &device, program_options, NULL, NULL);
+    if(err < 0) {
+
+        /* Find size of log and print to std output */
+        clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
+                              0, NULL, &program_log_size);
+        program_log = (char*) malloc(program_log_size+1);
+        program_log[program_log_size] = '\0';
+        clGetProgramBuildInfo(program, device, CL_PROGRAM_BUILD_LOG,
+                              program_log_size+1, program_log, NULL);
+        printf("%s\n", program_log);
+        free(program_log);
+        exit(1);
+    }
+
+    /* Deallocate resources */
+    for(cl_int i=0; i<NUM_FILES; i++) {
+        free(program_buffer[i]);
+    }
+    clReleaseProgram(program);
+    clReleaseContext(context);
+
 }
 
 

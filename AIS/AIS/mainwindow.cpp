@@ -17,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ais_det.demodulation(102.4e3);
     result = ais_det.decode();
 
-    // appendStringToTxtFile("../../example.txt", QString::fromStdString(result));
+    // appendStringToTxtFile("/home/ze/Desktop/example.txt", QString::fromStdString(result));
     qDebug() << result.data();
 }
 

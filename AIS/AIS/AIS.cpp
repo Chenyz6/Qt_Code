@@ -169,11 +169,11 @@ void AIS::demodulation(uint32_t sample_freq) {
   m_demod_bit = stCSignalDemodProbe->GetSignalSymbol(dwBitNum);
   m_demod_bit_len = dwBitNum;
 
-  printf("解调后输出：\n");
-  for (int i = 0; i < m_demod_bit_len; i++) {
-    printf("%d", m_demod_bit[i]);
-  }
-  printf("\n");
+  // printf("解调后输出：\n");
+  // for (int i = 0; i < m_demod_bit_len; i++) {
+  //   printf("%d", m_demod_bit[i]);
+  // }
+  // printf("\n");
 
   delete[] temp_iq;
 }
